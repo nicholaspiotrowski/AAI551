@@ -1,5 +1,5 @@
-# Author:
-# Date:
+# Author: Siyuan Fang, Nicholas Piotrowski
+# Date: November 17th, 2023
 """Description:
 
 """
