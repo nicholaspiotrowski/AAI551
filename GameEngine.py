@@ -4,8 +4,47 @@
 
 """
 
+import os
+
+
 class GameEngine:
-    self.__NUMBEROFVEGGIES = 30
-    NUMBEROFRABBITS = 5
-    HIGHSCOREFILE = "highscore.data"
+    __NUMBEROFVEGGIES = 30
+    __NUMBEROFRABBITS = 5
+    __HIGHSCOREFILE = "highscore.data"
+
+    def __init__(self):
+        self.__field = []
+        self.__rabbits = []
+        self.__captain = None
+        self.__vegetables = []
+        self.__score = 0
+
+    def initVeggies(self):
+        pointsFileName = input("Please enter the name of the vegetable point file: ")
+
+    def initCaptain(self):
+
+    def initRabbits(self):
+
+    def initializeGame(self):
+
+    def remainingVeggies(self):
+
+    def intro(self):
+
+    def printField(self):
+
+    def getScore(self):
+
+    def moveRabbits(self):
+
+    def moveCptVertical(self):
+
+    def moveCptHorizontal(self):
+
+    def moveCaptain(self):
+
+    def gameOver(self):
+
+    def highScore(self):
 
