@@ -19,6 +19,7 @@ class GameEngine:
         self.__vegetables = []
         self.__score = 0
 
+    # Nick
     def initVeggies(self):
         pointsFileName = input("Please enter the name of the vegetable point file: ")
 
@@ -34,6 +35,7 @@ class GameEngine:
 
     def printField(self):
 
+    # Siyuan
     def getScore(self):
 
     def moveRabbits(self):
