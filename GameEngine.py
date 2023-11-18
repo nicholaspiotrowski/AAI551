@@ -10,6 +10,7 @@ from Veggie import Veggie
 from Captain import Captain
 from Rabbit import Rabbit
 
+
 class GameEngine:
     __NUMBEROFVEGGIES = 30
     __NUMBEROFRABBITS = 5
@@ -19,6 +20,7 @@ class GameEngine:
         self.__field = []
         self.__rabbits = []
         self.__captain = None
+
         self.__possibleVegetables = []
         self.__score = 0
 
