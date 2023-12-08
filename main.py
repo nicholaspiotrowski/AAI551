@@ -19,12 +19,14 @@ def main():
         captainVeggieGame.printField()
         veggiesRemaining -= 10
         # MOVE RABBITS HERE
+        captainVeggieGame.moveRabbits()
         # MOVE CAPTAIN HERE
+        captainVeggieGame.moveCaptain()
         # DETERMINE NEW NUMBER OF REMAINING VEGGIES HERE
-
+        veggiesRemaining = captainVeggieGame.remainingVeggies()
     # Display Game Over info here
-
+    captainVeggieGame.gameOver()
     # Handle High Score functionality here
-
+    captainVeggieGame.highScore()
 
 main()
