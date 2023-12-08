@@ -117,17 +117,84 @@ class GameEngine:
         print()
 
     # Siyuan
-    # def getScore(self):
-    #
-    # def moveRabbits(self):
-    #
-    # def moveCptVertical(self):
-    #
-    # def moveCptHorizontal(self):
-    #
-    # def moveCaptain(self):
-    #
-    # def gameOver(self):
-    #
-    # def highScore(self):
-    #
+    def getScore(self):
+        return self.__score
+
+    def moveRabbits(self):
+        moved_rabbits = 0
+        for i in range(len(self.__rabbits)):
+            rabbit = self.__rabbits[i]
+            row_move = random.randint(-1, 1)
+            col_move = random.randint(-1, 1)
+            #move within the field
+            if 0 <= rabbit[1] + row_move < len(self.__field) and 0 <= rabbit[0] + col_move < len(self.__field[0]):
+                row = rabbit[1] + row_move
+                col = rabbit[0] + col_move
+                if not self.__field[row][col] or isinstance(self.__field[row][col], Veggie):
+                    self.__field[rabbit[1]][rabbit[0]] = None
+                    rabbit = Rabbit(col, row)
+                    self.__rabbits[i] = rabbit
+                    self.__field[row][col] = rabbit
+
+    def moveCptVertical(self, direction):
+        row = self.__captain[1]
+        col = self.__captain[0]
+        if 0 <= row + direction < len(self.__field):
+            if isinstance(self.__field[row + direction][col], Rabbit):
+                return
+            else:
+                if isinstance(self.__field[row + direction][col], Veggie):
+                    veg = self.__field[row + direction][col]
+                    print(f"Yummy! A delicious {veg.name}")
+                    self.__captain.addVeggie(veg)
+                    self.__score += veg.getPoints()
+                vegcollected = self.__captain.setVeggiesCollected()
+                newCap = Captain(col, row + direction)
+                self.__field[row][col] = None
+                self.__captain = newCap
+                self.__captain.setVeggiesCollected(vegcollected)
+                self.__field[row + direction][col] = self.__captain
+
+
+    def moveCptHorizontal(self, direction):
+        row = self.__captain[1]
+        col = self.__captain[0]
+        if 0 <= col + direction < len(self.__field):
+            if isinstance(self.__field[row][col + direction], Rabbit):
+                return
+            else:
+                if isinstance(self.__field[row][col + direction], Veggie):
+                    veg = self.__field[row][col + direction]
+                    print(f"Yummy! A delicious {veg.name}")
+                    self.__captain.addVeggie(veg)
+                    self.__score += veg.getPoints()
+                vegcollected = self.__captain.setVeggiesCollected()
+                newCap = Captain(col + direction, row)
+                self.__field[row][col] = None
+                self.__captain = newCap
+                self.__captain.setVeggiesCollected(vegcollected)
+                self.__field[row][col + direction] = self.__captain
+    def moveCaptain(self):
+        direction = input("Would you like to move up(W), down(S), left(A), or right(D):")
+        direction = direction.lower()
+        if direction == "w":
+            self.moveCptVertical(1)
+        elif direction == "s":
+            self.moveCptVertical(-1)
+        elif direction == "a":
+            self.moveCptHorizontal(-1)
+        elif direction == "a":
+            self.moveCptHorizontal(1)
+        else:
+            print(f"{direction} is not a valid option")
+        print(f"{self.remainingVeggies()} veggies remaining. Current score: {self.__score}")
+    def gameOver(self):
+        print("Game Over")
+        print("You managed to harvest the following vegetables:")
+        for veg in self.__captain.setVeggiesCollected():
+            print(veg.getname)
+
+     # def highScore(self):
+        # if os.path.exists('highscore.data'):
+        #     with open('highscore.data', 'rb') as file:
+        #         high_scores = pickle.load(file)
