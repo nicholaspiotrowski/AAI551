@@ -1,7 +1,10 @@
 # Author: Siyuan Fang, Nicholas Piotrowski
-# Date: November 18th, 2023
+# Date: December 8th, 2023
 """Description:
-
+This file handles rabbit objects in the Captain Veggie game.
+Subclass of Creature, rabbit objects need to have their symbol
+defined as 'R' and need to be their own object type.
+The Rabbit represents a game obstacle.
 """
 
 from Creature import Creature
