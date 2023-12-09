@@ -1,8 +1,9 @@
-# Author:Siyuan Fang, Nicholas Piotrowski
-# Date:11/17/2023
-
+# Author: Siyuan Fang, Nicholas Piotrowski
+# Date: December 8th, 2023
 """Description:
-
+This file handles all Creature objects in the Captain Veggie game.
+Subclass of FieldInhabitant, veggie objects need functionality for their x and y coordinates.
+Functionality includes getters and setters for these values
 """
 
 from FieldInhabitant import FieldInhabitant
@@ -11,8 +12,8 @@ from FieldInhabitant import FieldInhabitant
 class Creature(FieldInhabitant):
     def __init__(self, symbol, x, y):
         FieldInhabitant.__init__(self, symbol)
-        self._x = x
-        self._y = y
+        self._x = x     # x coordinate of creature on field
+        self._y = y     # y coordinate of creature on field
 
     def getXCoord(self):
         return self._x
